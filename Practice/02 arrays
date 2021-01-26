@@ -1,0 +1,57 @@
+using System;
+
+namespace ArrayApplication {
+	
+	public class MyArray{
+	   public static void Main( string[] args) {
+			
+			int [] numbers = new int[10];
+			
+			int i, j;
+			
+			/*initialize elements of array n */
+			
+			for( i = 0; i < 10 ; i++){
+			
+			numbers[i] = i + 1000;
+			
+			}
+		   
+			/* output each array elements value using for loop */
+			
+		  Console.WriteLine("Write to console using for loop");
+      
+			for ( j = 0; j < 10 ; j++){
+		
+				Console.WriteLine("Element [{0}] = {1}", j, numbers[j]);
+				
+			}
+	
+  
+		   Console.WriteLine("Write to console using for each");
+       
+		   int [] num = new int[10];
+		   
+       /*initialize elements of array n */
+       
+		   for( int k = 0; k < 10 ; k++){
+			
+				num[k] = k + 10;
+			
+			}
+		   
+       /* output each array elements value using for each loop */
+       
+		   foreach ( int k in num){
+			   
+			   int y = k - 10;
+			   
+			   Console.WriteLine("Element [{0}] = {1}",  y, k);
+		   
+		   }
+		
+		}
+	
+	}
+	
+}
