@@ -1,0 +1,95 @@
+using System;
+
+namespace studentdata{
+	
+//Abstract class with abstract properties 
+ public abstract class Person{
+ 	public abstract string Name {
+		get;
+		set;
+	}
+	 
+	public abstract int Age{
+	 	get;
+		set;
+	}
+
+ }
+	
+ class Student : Person {
+ 	private string firstname  = "N.A";
+	private string name = "not known";
+	private int age = 0;
+ 
+ 	//Declare a code property of type string:
+	 public string FirstName {
+	 
+	   get {
+		   return  firstname;
+	 }
+	  
+		 set {
+		 
+		 	firstname  = value;
+		 }
+ 	}
+
+	 //Declare a Name property of type string
+	 
+	 public override string Name {
+	 
+	 	get {
+		
+		   return name;
+		}
+	    
+		set {
+		
+		   name = value;
+		
+		}
+	 
+	 }
+	 
+	 public override int Age{
+	 
+	   get {
+	   
+	     return age;
+	   }
+	   
+		set{
+		
+		 age = value;
+		}
+	 
+	 }
+	 
+	 public override string ToString(){
+	 
+	 	return "First Name  = " + FirstName +", Name = " + Name + ", Age  = " + Age;
+	 }
+	 
+ }
+	 public class SetDATA{
+	    public static void Main(){
+			//create a new student object;
+			Student s = new Student();
+			
+			//Setting code, name and the age of the student
+			s.FirstName = "Ed";
+			s.Name = "A";
+			s.Age = 25;
+			
+			Console.WriteLine("Student info: {0}", s);
+			
+		   //increase the age by 10
+			Console.WriteLine("Age increased by 10");
+			
+			s.Age += 10;
+			Console.WriteLine("Student info: {0}", s);
+		
+		}
+	 }
+	 
+}
