@@ -1,0 +1,21 @@
+using System;
+
+namespace VariableDefinition{
+  public class Program{
+    public  static void Main(string[] args){
+		 short a = 10;
+		 int b = 30;
+		 double c = 3.1415;
+		 byte z = 25;
+		 char x = 'a';
+		 decimal d;
+		 
+	    Console.WriteLine("a = {0}, b = {1}, c = {2}, z = {3}, x = {4}", a, b, c, z, x);
+		d = Convert.ToDecimal(Console.ReadLine());
+		
+		Console.WriteLine(" Decimal = {0} ", d);
+		
+		Console.ReadLine();
+	 }
+  }
+}
