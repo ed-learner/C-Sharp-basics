@@ -1,0 +1,63 @@
+using System;
+
+namespace Loops{
+
+	public class loops{
+	
+		public static void Main(string [] args){
+		
+			int numbers = 0 ;
+			
+			Console.WriteLine("While loops");
+			while (numbers < 10){
+			
+			  Console.WriteLine("value of number : {0} ", numbers);
+				
+				numbers++;
+			}
+			
+			Console.WriteLine(" ");
+			Console.WriteLine("For loops");
+			
+			for ( int i = 0; i < 10 ; i++){
+			
+				Console.WriteLine("values of number : {0}", i);
+			}
+			
+			Console.WriteLine(" ");
+			Console.WriteLine("do while loop");
+			
+			do {
+				Console.WriteLine("value of number: {0} ", numbers);
+				numbers = numbers + 1;
+			}
+			
+			while ( numbers < 10 );
+			
+			Console.WriteLine(" ");
+			Console.WriteLine("nested loops");
+			
+			int k,j;
+			
+			for (k = 2; k < 10; k++){
+			 for (j = 2; j <= (k/j); j++)
+			 
+			 	if (( k % j) == 0) 
+					break;
+				
+				if ( j > (k/j) ) Console.WriteLine(" {0} is prime ", k);
+			 
+			}
+			
+			Console.WriteLine(" ");
+			Console.WriteLine("infinite loop");
+			
+			for( ; ; ){
+			  Console.ReadLine();
+			
+			}
+		
+		}
+	
+	}
+}
