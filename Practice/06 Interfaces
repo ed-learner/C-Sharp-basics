@@ -1,0 +1,62 @@
+using System;
+
+namespace InterfaceApplication{
+	
+	public interface Banktransactions{
+		void showTransaction ();
+		double getAmount();
+	}
+	
+	public class Transaction : Banktransactions {
+	
+		private string transactionCode;
+		private string date;
+		private double amount;
+		private string clientName;
+		
+		
+		public Transaction(){
+			transactionCode = " ";
+			date = " ";
+			amount = 0.0;
+			clientName = " ";
+		
+		}
+		
+		public Transaction (string code, string day, double amount, string name) {
+		
+			transactionCode = code;
+			date = day;
+			amount = amount;
+			clientName = name;
+		
+		}
+		
+		public double getAmount() {
+		  return amount;
+		}
+		
+		public void showTransaction(){
+		   Console.WriteLine("Transaction : {0} ", transactionCode);
+		   Console.WriteLine("Date: {0}", date);
+		   Console.WriteLine("Amount: {0}", getAmount());
+		   Console.WriteLine("Client Name: {0}", clientName);
+		
+		}
+	
+	}
+ 
+	public class Transactor {
+		public static void Main(string[] args) {
+		
+			Transaction t1 = new Transaction ("001", "8/11/22", 80000.00, "Ed");
+			Transaction t2 = new Transaction ("002", "9/11/22", 1000000.00, "Ed");
+			
+			t1.showTransaction();
+			Console.WriteLine(" ");
+			t2.showTransaction();
+			
+		}
+	
+	}
+}
