@@ -1,0 +1,64 @@
+using System;
+
+namespace PolymorphisimShape{
+	class Shape {
+		protected int width, height;
+		
+		public Shape( int a = 0, int b = 0) {
+		
+			width = a;
+			height = b;
+		}
+		
+		public virtual int area() {
+			Console.WriteLine("Parent class area :");
+		    return 0;
+		}
+	}
+	
+	class Rectangle : Shape {
+		public Rectangle ( int a = 0, int b = 0) : base (a , b){
+		
+		}
+		public override int area(){
+			Console.WriteLine("Rectangle class area : ");
+			return (width * height);
+		}
+	}
+	
+	class Triangle: Shape {
+		public Triangle (int a = 0, int b = 0) : base (a, b){
+		
+		}
+		
+		public override int area(){
+		 Console.WriteLine("Triangle class  area : ");
+		 return (width * height/2);
+		}
+	
+	}
+	
+	class areaCalculator{
+		public void Area(Shape shp){
+		  int ar;
+		  ar = shp.area();
+		  Console.WriteLine("Area : {0}", ar);
+		
+		}
+	}
+	
+	public class AreaCalculator{
+		public static void Main(string [] args){
+		 areaCalculator c =  new areaCalculator();
+			Rectangle r = new Rectangle(50, 20);
+			Triangle t = new Triangle(21,9);
+			
+			c.Area(r);
+			Console.WriteLine(" ");
+			c.Area(t);
+		}
+	}
+}
+
+
+
