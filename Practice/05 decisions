@@ -1,0 +1,68 @@
+using System;
+
+namespace Decisions{
+	public class decision{
+		public static void Main( string[] args) {
+		  /* local variable definition */
+			
+			int a;
+			
+			Console.WriteLine(" Please Enter a number : ");
+			a = Convert.ToInt32((Console.ReadLine()));
+			
+		   if ( a  < 10){
+		      Console.WriteLine(" Number is less than 10");
+		   
+		   }
+			
+		   else if ( a == 10){
+				
+			   Console.WriteLine(" Number is equal to 10 ");
+			
+			}
+		
+			else
+				Console.WriteLine( "Number is greater than 10 ");
+		
+		
+			char grade;
+		
+			Console.WriteLine(" Please Enter a grade 'A' , 'B' , 'C', 'D' , 'E', 'F': ");
+			grade = Convert.ToChar((Console.ReadLine()));
+			
+			
+			switch( grade) {
+			
+				case 'A':
+					Console.WriteLine( "Excellent ");
+					break;
+					
+				case 'B':
+					Console.WriteLine("Well done");
+					break;
+					
+				case 'C':
+					Console.WriteLine ("Well done");
+					break;
+					
+				case 'D':
+					Console.WriteLine ("Better try again");
+					break;
+					
+				case 'F':
+					Console.WriteLine ("Please study hard");
+					break;
+					
+				default:
+					Console.WriteLine("Invalid grade ");
+					break;
+					
+			    }
+			
+				Console.WriteLine( "Your grade is {0} ", grade);
+		   }
+			
+		}	
+	} 
+	
+
