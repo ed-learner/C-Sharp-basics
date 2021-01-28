@@ -1,0 +1,24 @@
+using System;
+
+namespace TypeConversions{
+	public class ExplicitConversion {
+		public static void Main (string[] args){
+		
+		   double d = 123456.7;
+		   int a = 3;
+		   int b = 10;
+		   int i;
+			
+		   //cast double to int
+			i = (int) d;
+			Console.WriteLine( "Double to int: {0}", i);
+			
+		   //using type conversion methods
+	
+			Console.WriteLine("Double to string: {0}",Convert.ToString(d));
+			Console.WriteLine("Int to Int32: {0}",Convert.ToInt32(a));
+			Console.WriteLine("int to decimal: {0}",Convert.ToDecimal(b));		
+			
+		}
+	}
+}
