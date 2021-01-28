@@ -1,0 +1,43 @@
+using System;
+
+namespace RecursiveMethod {
+   class FactorialMethodClass {
+	   
+	  public FactorialMethodClass() { 
+		  
+         Console.WriteLine("Object is being created from default constructor");
+		   
+      }
+	   
+      ~FactorialMethodClass() {  
+		  
+       	Console.WriteLine("Object is being deleted");
+		  
+      }
+	   
+      public int factorial(int number) {
+         int result;
+		  
+         if (number == 1) {
+            return 1;
+			 
+         } else {
+            result = factorial(number - 1) * number;
+            return result;
+         }
+      }
+      
+   }
+	
+public class Factorial {
+	public static void Main(string[] args) {
+       FactorialMethodClass f = new FactorialMethodClass();
+
+       Console.WriteLine(" ");
+       Console.WriteLine("Factorial of 3 is : {0}", f.factorial(3));
+       Console.WriteLine("Factorial of 4 is : {0}", f.factorial(4));
+       Console.WriteLine("Factorial of 5 is : {0}", f.factorial(5));
+
+      }
+  }	
+}
