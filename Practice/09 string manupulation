@@ -1,0 +1,45 @@
+using System;
+
+namespace StringManupulation {
+	public class Program {
+		
+		public static void Main (string [] args){
+			
+			string firstname, lastname;
+			
+			firstname = "Ed";
+			lastname = "Stark";
+			
+			char [] letters = { 'H', 'e', 'l','l', 'o'};
+			string [] stringArray = {"Hello", "From", "the other side"};
+			
+			string fullname = firstname + lastname;
+			Console.WriteLine("Full Name: {0}", fullname);
+			
+			string greetings = new string(letters);
+			Console.WriteLine("Greetings: {0}", greetings);
+			
+			string message = String.Join(" ",stringArray);
+			Console.WriteLine("Message: {0}", message);
+	
+	        DateTime day = new DateTime (2022, 1, 1, 17, 58, 1);
+			string formatedDate = String.Format("Message sent at {0:t} on {0:D}", day);
+			Console.WriteLine("Message: {0}", formatedDate);
+			
+			Console.WriteLine(" ");
+			string str1 = "This is the first string";
+			string str2 = "This is the second string";
+			
+			if (String.Compare( str1, str2) == 0){
+				Console.WriteLine(str1 + " and " + str2 + " are equal.");
+			} else {
+			   Console.WriteLine (str1 + " and " + str2 + " are not equal.");
+			}	
+			
+			if (str1.Contains( "first")){
+				Console.WriteLine("The word 'first' was found in str1. ");
+			}
+	}
+
+  }
+}
