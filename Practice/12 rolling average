@@ -5,7 +5,7 @@ namespace MovingAverage {
 class movingaverage{
 
     private int windowSize = 0;
-	private int []array = {0};
+    private int []array = {0};
     
 	public int WindowSize{
 		get {
