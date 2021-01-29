@@ -1,0 +1,70 @@
+using System;
+
+namespace MovingAverage {
+
+class movingaverage{
+
+    private int windowSize = 0;
+	private int []array = {0};
+    
+	public int WindowSize{
+		get {
+			return windowSize;
+		}
+
+		set {
+			windowSize = value;
+		}	
+	}
+	
+	
+	public int [] Array{
+		get {
+			return array;
+		}
+		
+		set {	
+		    array = value;
+		}
+	}
+	
+	public void rollingAverage (int windowsize, int [] array){
+	
+		int arraysize = array.Length;
+		int tempsum = 0;
+		float average = 0;
+		int count = 1;
+			
+		for(int i = 0; i < arraysize; i++){
+		 
+			tempsum += array [i];
+			
+			if( i >= windowsize){
+			   
+				tempsum -= array[i - windowsize];
+			}
+			
+			if (i >= windowsize - i){
+			   average = tempsum/windowsize;
+			   Console.WriteLine("{0} Moving average {1}:", count, average);
+				
+			   count++;
+			} 
+		}
+	}
+}
+					
+	public class MainProgram {
+
+		public static void Main() {
+
+			movingaverage ma = new movingaverage();
+			ma.WindowSize = 2;
+			ma.Array = new int [5] {10,20,30,40,50};
+			ma.rollingAverage(ma.WindowSize, ma.Array);
+
+		}
+	}
+
+}
+
