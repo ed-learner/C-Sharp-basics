@@ -19,7 +19,7 @@ namespace BalancedParenthesis{
 
     public void parenthesisCheckMessage(int numberOfOpeningParenthesis, int numberOfClosingParenthesis){
         if (numberOfOpeningParenthesis == 0 && numberOfClosingParenthesis == 0){
-          Console.WriteLine(" Parenthesis mising in string");
+          Console.WriteLine(" '(' and ')' parenthesis mising in string");
         }
         if(numberOfOpeningParenthesis != numberOfClosingParenthesis){
           Console.WriteLine(" Parenthesis sequence not balanced");
