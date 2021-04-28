@@ -1,0 +1,44 @@
+using System;
+
+namespace BalancedParenthesis{
+
+  public class CheckParenthesis{
+    public void parenthesisCheck(string s){
+      int numberOfOpeningParenthesis = 0;
+      int numberOfClosingParenthesis = 0;
+        for( int i = 0; i < s.Length; i++){
+          if ( s[i] == '('){
+          numberOfOpeningParenthesis++;
+          }
+          else if ( s[i] == ')'){
+          numberOfClosingParenthesis++;
+        }
+      }
+      parenthesisCheckMessage( numberOfOpeningParenthesis,numberOfClosingParenthesis);
+    }
+
+    public void parenthesisCheckMessage(int numberOfOpeningParenthesis, int numberOfClosingParenthesis){
+        if (numberOfOpeningParenthesis == 0 && numberOfClosingParenthesis == 0){
+          Console.WriteLine(" Parenthesis mising in string");
+        }
+        if(numberOfOpeningParenthesis != numberOfClosingParenthesis){
+          Console.WriteLine(" Parenthesis sequence not balanced");
+        }
+        if ( numberOfOpeningParenthesis == numberOfClosingParenthesis && numberOfOpeningParenthesis != 0){
+          Console.WriteLine(" Balanced parenthesis sequence in string");
+        }	 
+    }  
+  }
+
+  public class BalancedParenthesisTest {
+    public static void Main() {
+      CheckParenthesis cp = new CheckParenthesis();
+        for (int i = 0; i < 5; i++) {
+          Console.WriteLine("Enter your string");
+          string s = Console.ReadLine();
+          cp.parenthesisCheck(s);
+        }
+    }	
+  }
+
+}
