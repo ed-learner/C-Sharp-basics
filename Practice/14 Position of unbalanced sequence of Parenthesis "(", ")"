@@ -1,0 +1,104 @@
+sing System;
+using System.Collections.Generic;
+
+
+namespace BalancedParenthesis{
+	
+ public class CheckParenthesis{
+	 
+    public void parenthesisCheck(string s){
+		int unbalancedPosition = 0;
+	 	int numberOfOpeningParenthesis = 0;
+	    int numberOfClosingParenthesis = 0;
+	    Stack <char> OpeningParenthesisStack = new Stack <char> (); 
+			
+			
+		for( int i = 0; i < s.Length; i++){
+		    
+			if ( s[i] == '('){
+			  numberOfOpeningParenthesis++;
+			  OpeningParenthesisStack.Push(s[i]);
+
+			}
+			
+			if ( s[i] == '(' && !s.Contains(")")){
+		     unbalancedPosition  = i;
+			 Console.WriteLine("No closing blace: unbalanced brace at {0}", unbalancedPosition);	
+		   }
+		    
+			else if ( s[i] == ')'){
+			  	numberOfClosingParenthesis++;
+				if  (OpeningParenthesisStack.Count > 0 ){
+					
+					OpeningParenthesisStack.Pop();
+					Console.WriteLine("Balanced Parenthesis",OpeningParenthesisStack.Count);	
+					
+				   
+				}
+				
+				else  {
+					
+					unbalancedPosition  = i;
+					Console.WriteLine(" Breaking ");
+				    break;
+					
+				}
+				
+			}
+			
+	       
+		
+		}
+		
+		
+		//parenthesisCheckMessage( numberOfOpeningParenthesis,numberOfClosingParenthesis, unbalancedPosition);
+		
+		
+		
+		
+		
+	 }
+	 
+	 
+	 public void parenthesisCheckMessage(int numberOfOpeningParenthesis, int numberOfClosingParenthesis, int unbalancedPosition){
+
+	    if (numberOfOpeningParenthesis == 0 && numberOfClosingParenthesis == 0){
+
+		   Console.WriteLine(" '(' and ')' parenthesis mising in string");
+		}
+		 
+		if(numberOfOpeningParenthesis != numberOfClosingParenthesis){
+			
+			Console.WriteLine(" Parenthesis sequence not balanced");
+			Console.WriteLine(" Unbalanced parenthesis at position {0}",unbalancedPosition);
+		}
+		
+		if ( numberOfOpeningParenthesis == numberOfClosingParenthesis && numberOfOpeningParenthesis != 0){
+			
+		   Console.WriteLine(" Balanced parenthesis sequence in string");
+		}
+		 
+	 }
+     
+   }
+	
+	public class BalancedParenthesisTest{
+	 
+		public static void Main(){
+			
+		  CheckParenthesis cp = new CheckParenthesis();
+			
+			
+		  for (int i = 0; i < 5; i++){
+			  
+		   Console.WriteLine("Enter your string");
+		   string s = Console.ReadLine();
+			
+		   cp.parenthesisCheck(s);
+		  
+		  }
+		}
+	
+	}
+	
+}
