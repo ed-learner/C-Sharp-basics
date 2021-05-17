@@ -2,91 +2,65 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BalancedParenthesis{
+public class CheckParenthesis {
 	
- public class CheckParenthesis{
-	 
-    public int parenthesisCheck(string s){
-		int unbalancedPosition = 0;
-	 	int numberOfOpeningParenthesis = 0;
-	    int numberOfClosingParenthesis = 0;
-	    Stack <char> OpeningParenthesisStack = new Stack <char> (); 
+	public static int checkBalanced(String check) {
+		
+		Stack <char>Openingparentheisstack = new Stack<char>();
+		int unbalancedpos = -1;
+		
+		for (int i = 0; i < check.Length; i++) {
 			
+			char character = check[i];
 			
-		for( int i = 0; i < s.Length; i++){
-		    
-			if ( s[i] == '('){
-			  numberOfOpeningParenthesis++;
-			  OpeningParenthesisStack.Push(s[i]);
+			if (character == '(')
+				Openingparentheisstack.Push(character);
+			
+			else if (character == ')') {
+					if (!Openingparentheisstack.Any()) {
+						unbalancedpos = check.Length - 1;
+						Console.WriteLine("UNBalanced parenthesis in the string {0}", unbalancedpos);
+						return unbalancedpos;
 
-			}
-			
-			
-			else if ( s[i] == ')'){
-			  	numberOfClosingParenthesis++;
+					}
+					else if (character == ')' && Openingparentheisstack.Pop() != '(' ){
+						unbalancedpos = i;
+						Console.WriteLine("UNBalanced parenthesis in the string at {0}", unbalancedpos);
+						return unbalancedpos;
+
+					}
 				
-				if (!OpeningParenthesisStack.Any() || (OpeningParenthesisStack.Peek() != '(')) {
-					unbalancedPosition = i;
-                    
-                }
-                OpeningParenthesisStack.Pop();
-                break;
 				
 			}
+		}
+		
+		
+		if (!Openingparentheisstack.Any()) {
 			
+			unbalancedpos = -1;
+			
+		}
+		
+		if (check[check.Length - 1] == '('){
+			
+			 unbalancedpos = check.Length - 1;
+			 return unbalancedpos;
+			
+		}
+		
+		 return unbalancedpos;
+	}
 	
-			
-			
-		}
-		
-		
-		//parenthesisCheckMessage( numberOfOpeningParenthesis,numberOfClosingParenthesis, unbalancedPosition);
-		
-		if ( s[s.Length -1] == '('){
-			  
-			Console.WriteLine(" Un Balanced parenthesis sequence in string {0}", s.Length -1);
-			}
-		 
-		if( numberOfOpeningParenthesis == numberOfClosingParenthesis && !OpeningParenthesisStack.Any() ){
-		    Console.WriteLine("Balanced parenthesis sequence in s");
-		}
-		
-		else 
-			Console.WriteLine(" Un Balanced parenthesis sequence in string {0}", unbalancedPosition);
-		
-		return unbalancedPosition;
-		
-		
-	 }
-	 
-	 
-	 public void parenthesisCheckMessage(int numberOfOpeningParenthesis, int numberOfClosingParenthesis, int unbalancedPosition){
-
-	    if (numberOfOpeningParenthesis == 0 && numberOfClosingParenthesis == 0){
-
-		   Console.WriteLine(" '(' and ')' parenthesis mising in string");
-		}
-		 
-		if(numberOfOpeningParenthesis != numberOfClosingParenthesis){
-			
-			Console.WriteLine(" Parenthesis sequence not balanced");
-			Console.WriteLine(" Unbalanced parenthesis at position {0}",unbalancedPosition);
-		}
-		
-		if ( numberOfOpeningParenthesis == numberOfClosingParenthesis && numberOfOpeningParenthesis != 0){
-			
-		   Console.WriteLine(" Balanced parenthesis sequence in string");
-		}
-		 
-	 }
-     
-   }
 	
-	public class BalancedParenthesisTest{
+}
+
+
+public class BalancedParenthesisTest{
 	 
 		public static void Main(){
 			
 		  CheckParenthesis cp = new CheckParenthesis();
+		  int balanceposition = 0;
 			
 			
 		  for (int i = 0; i < 5; i++){
@@ -94,11 +68,22 @@ namespace BalancedParenthesis{
 		   Console.WriteLine("Enter your string");
 		   string s = Console.ReadLine();
 			
-		   cp.parenthesisCheck(s);
+
+		    balanceposition = CheckParenthesis.checkBalanced(s);
+			  
+			  if (balanceposition == -1){
+				  
+			      Console.WriteLine("Balanced Paranthesis in the string ");
+			  }
+			  
+			  else
+				  
+		         Console.WriteLine("First instance of unbalanced parenthesis at poaition :{0} ",balanceposition );
+			
 		  
 		  }
 		}
 	
 	}
 	
-}
+
