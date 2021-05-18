@@ -16,7 +16,7 @@ namespace BalancedParenthesis{
       }
       parenthesisCheckMessage( numberOfOpeningParenthesis,numberOfClosingParenthesis);
     }
-
+    
     public void parenthesisCheckMessage(int numberOfOpeningParenthesis, int numberOfClosingParenthesis){
         if (numberOfOpeningParenthesis == 0 && numberOfClosingParenthesis == 0){
           Console.WriteLine(" '(' and ')' parenthesis mising in string");
@@ -30,15 +30,16 @@ namespace BalancedParenthesis{
     }  
   }
 
-  public class BalancedParenthesisTest {
-    public static void Main() {
-      CheckParenthesis cp = new CheckParenthesis();
-        for (int i = 0; i < 5; i++) {
-          Console.WriteLine("Enter your string");
-          string s = Console.ReadLine();
-          cp.parenthesisCheck(s);
-        }
-    }	
-  }
+
+public class BalancedParenthesisTest {
+  public static void Main() {
+    CheckParenthesis cp = new CheckParenthesis();
+      for (int i = 0; i < 5; i++) {
+        Console.WriteLine("Enter your string");
+        string s = Console.ReadLine();
+        cp.parenthesisCheck(s);
+      }
+  }	
+}
 
 }
