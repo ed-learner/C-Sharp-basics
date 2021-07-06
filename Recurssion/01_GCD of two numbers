@@ -1,0 +1,46 @@
+using System;
+
+public class GCD_calculator {
+
+   public long gcd(long firstnumber, long secondnumber){
+	   
+	   if (secondnumber == 0){
+	   
+	   	 	return firstnumber;
+	   }
+       
+	   else {
+	   
+	   		return gcd(secondnumber, firstnumber % secondnumber);
+	   }
+   
+   }
+
+}
+
+
+
+public class Recurssion_GCD{
+	
+	public static void Main(){
+		
+		long firstnumber, secondnumber, GCD;
+		
+		Console.WriteLine("Find the GCD and LCM of two numbers");
+		
+	  Console.WriteLine("Input the first number: ");
+	  firstnumber = Convert.ToInt64(Console.ReadLine());
+		
+		Console.WriteLine("Input the second number: ");
+		secondnumber = Convert.ToInt64(Console.ReadLine());
+		
+		GCD_calculator gcd_calculator = new GCD_calculator();
+		
+		GCD = gcd_calculator.gcd(firstnumber,secondnumber);
+		
+		Console.WriteLine("The GCD OF {0} and {1} is: {2} ", firstnumber, secondnumber, GCD);
+	
+	}
+}
+
+
