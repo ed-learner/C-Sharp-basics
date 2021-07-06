@@ -1,0 +1,63 @@
+using System;
+
+
+class LCM_Calculator{
+	
+	public long gcd_calculator(long firstnumber,long secondnumber){
+
+		
+		if (secondnumber == 0) {
+			
+			long gcd_result = firstnumber;
+			
+			return gcd_result;
+	
+		}
+	    
+		else {
+		
+		  return  gcd_calculator(secondnumber, firstnumber % secondnumber);
+		} 
+    
+	}
+	
+	
+	public long lcm ( long firstnumber,long secondnumber){
+	     
+		long gcdresults = gcd_calculator(firstnumber,secondnumber);
+		
+		long lcm_result = (firstnumber * secondnumber)/ gcdresults;
+		
+		return lcm_result;
+	}
+	
+}
+
+
+public class LCM_Recurssion {
+	
+	public static void Main() {
+	    
+		long lcm_results, firstnumber, secondnumber;
+		
+		Console.WriteLine("Find LCM of two numbers ");
+		
+		Console.WriteLine("Enter the first number");
+		
+		firstnumber = Convert.ToInt64(Console.ReadLine());
+		
+		Console.WriteLine("Enter the second number");
+		
+		secondnumber = Convert.ToInt64(Console.ReadLine());
+		
+		
+		LCM_Calculator lcm_calculator = new LCM_Calculator();
+		
+		lcm_results = lcm_calculator.lcm(firstnumber,secondnumber);
+		
+		
+		Console.WriteLine("The LCM of {0} and {1} is : {2}", firstnumber,secondnumber, lcm_results);
+	
+	}
+
+}
