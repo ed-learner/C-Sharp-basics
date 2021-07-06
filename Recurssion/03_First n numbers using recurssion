@@ -1,0 +1,42 @@
+using System;
+
+class Naturalnumbersrecurssion {
+	
+	public long numbersrecurssion(long start, long end){
+		
+		if( end < 1 ){
+		
+		 return start;
+		
+		}
+		
+	   	end--;
+		
+		Console.WriteLine("{0}", start);
+		
+		return numbersrecurssion( start+1, end);
+	
+	}
+}
+
+public class Naturalnumbersrecurssions{
+
+	public static void Main(){
+		
+	 long start, end;
+		
+	 Console.WriteLine("Enter your starting number");
+		start = Convert.ToInt64(Console.ReadLine());
+		
+	 Console.WriteLine("Enter your ending number");
+		end = Convert.ToInt64(Console.ReadLine());
+		
+	 Console.WriteLine("Displaying natural numbers between {0} and {1}", start, end);
+	  
+	  Naturalnumbersrecurssion numberdisplay = new Naturalnumbersrecurssion();
+	  
+	  numberdisplay.numbersrecurssion(start,end);
+		
+	}
+
+}
