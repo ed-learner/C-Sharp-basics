@@ -1,0 +1,39 @@
+using System;
+
+class Countdigitnumbers{
+
+ public long Countnumberofdigits(long number, long nrdigits){
+	 
+	 if ( number == 0){
+	    
+		 return nrdigits;
+	 } 
+	 
+	   long numberofdigits = Countnumberofdigits(number/10, ++nrdigits);
+		 
+	  return numberofdigits;
+  
+  }
+
+}
+
+
+public class Countdigitnumbersdisplay{
+	
+	public static void Main() {
+	
+		Console.WriteLine("Counting number of digits: ");
+		
+		Console.WriteLine("Enter the number to count digits: ");
+		
+		long number = Convert.ToInt64(Console.ReadLine());
+		
+		Countdigitnumbers nrofdigits = new Countdigitnumbers();
+		
+		long numberofdigits = nrofdigits.Countnumberofdigits(number,0);
+		
+		Console.WriteLine("Number of digits in {0} is: {1}", number, numberofdigits);   
+	
+	}
+
+}
