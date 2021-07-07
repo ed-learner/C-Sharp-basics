@@ -1,0 +1,39 @@
+using System;
+
+class Individualdigitsrecurssion{
+	
+	public void displayindividualdigits (long number){
+     
+		if(number < 10){
+			
+		  Console.Write("{0} ", number);
+		  return ;
+		
+		}
+		
+		displayindividualdigits( number / 10);
+		Console.Write(" {0} ", number % 10);	
+	
+	}
+	
+}
+
+public class Individualdigitsdisplay {
+
+	public static void Main(){
+	
+		Console.WriteLine("Displaying individual digits in a number");
+		
+		Console.WriteLine("Enter your number: ");
+		long number = Convert.ToInt64(Console.ReadLine());
+		
+		Individualdigitsrecurssion digits = new Individualdigitsrecurssion();
+		
+		Console.WriteLine("Individual digits in {0} are : ", number);
+		
+		digits.displayindividualdigits(number);
+		
+	
+	}
+
+}
