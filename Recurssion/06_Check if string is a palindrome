@@ -1,0 +1,59 @@
+using System;
+
+class checkPalindrome {
+	
+	
+ public bool Palindromestring(string yourstring){
+	 
+	 if(yourstring.Length <= 1){
+	    
+	    return true;
+	 }
+     
+	 else{
+	 	
+		 if (yourstring[0] != yourstring[yourstring.Length - 1])
+			 return false;
+		 
+		 else
+			 return Palindromestring(yourstring.Substring(1, yourstring.Length - 2));
+	 }
+ }
+	
+public void displayifstringispalindrome( bool yesorno, string yourstring ){
+
+	if (yesorno == true){
+	    
+		Console.WriteLine("Your string \"{0}\" is a Palindrome", yourstring);
+	
+	}
+   
+	else {
+	
+		Console.WriteLine("Your string \"{0}\" is not a Pandrome", yourstring);
+	}
+
+ }
+	
+}
+
+public class checkPalindromedisplay {
+
+ public static void Main() {
+	 
+	 Console.WriteLine(" Check whether string is a Palindrome: ");
+	 
+	 Console.WriteLine("Please enter your string: ");
+	 
+	 string yourstring = Console.ReadLine();
+	 
+	 checkPalindrome palindromecheck = new checkPalindrome();
+	 
+     bool trueorfalse = palindromecheck.Palindromestring(yourstring);
+	 
+	 palindromecheck.displayifstringispalindrome(trueorfalse, yourstring);
+	 
+ 
+ }
+	
+}
