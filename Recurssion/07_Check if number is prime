@@ -1,0 +1,60 @@
+using System;
+
+
+class primenumbercheck{
+	
+	public bool checkprimenumber(long number, long divisor){
+	  
+		if( number == 1 ||  divisor == 1){
+		
+			return true;
+		}
+		
+	   else{
+	   
+	      if( number % divisor == 0){
+		     
+			  return false;
+		  
+		  }
+		   else
+			 return  checkprimenumber (number, divisor -1);
+	   
+	   }
+	
+	}
+	
+	
+    public void displaymessage (bool yesorno, long number){
+	
+	 if( yesorno == true) {
+	   
+		 Console.WriteLine("The number {0} is a prime number", number);
+	 
+	 }
+	 else
+		 Console.WriteLine("The number {0} is not a prime number", number);
+	
+	}
+
+
+}
+
+public class primenumberchecker {
+
+  public static void Main(){
+  
+  	Console.WriteLine("Checking if number is prime using recurssion");
+	  Console.WriteLine("Please enter your number: ");
+	  
+	  long number = Convert.ToInt64(Console.ReadLine());
+	  
+	  primenumbercheck primenumber = new primenumbercheck();
+	  
+	 bool outcome = primenumber.checkprimenumber(number, number/2);
+	  
+	 primenumber.displaymessage(outcome,number);
+	  
+	  
+  }
+}
