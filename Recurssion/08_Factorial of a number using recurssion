@@ -1,0 +1,34 @@
+using System;
+
+class numberFactorial{
+
+  public long numberfactorial(long number){
+    
+	  if( number == 0){
+	  
+	  	return 1;
+	  }
+  
+	  
+	 return number * numberfactorial(number - 1);
+  
+  }
+}
+
+public class displayFactorialofnumber{
+
+	public static void Main(){
+	
+		Console.WriteLine("Find the factorial of a number: ");
+		
+		long number = Convert.ToInt64(Console.ReadLine());
+		
+		numberFactorial factorialcalculator = new numberFactorial();
+		
+		long factorial = factorialcalculator.numberfactorial(number);
+		
+	
+		Console.WriteLine("The factorial of {0} is {1}", number, factorial);
+	
+	}
+}
