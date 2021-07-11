@@ -1,0 +1,36 @@
+using System;
+
+class reverseString {
+	
+	public string stringReverse(string yourstring){
+	
+		if(yourstring.Length > 0 ){
+		
+			return yourstring[yourstring.Length - 1] + stringReverse(yourstring.Substring(0, yourstring.Length-1));
+		}
+		
+		else {
+		
+			return yourstring;
+		}		
+	}
+}
+
+public class reverseStringdisplay {
+
+	public static void Main() {
+		
+		Console.WriteLine("Reversing string: ");
+		
+		Console.WriteLine("Enter the string to reverse :");
+		string yourstring = Console.ReadLine();
+		
+		reverseString stringreverse = new reverseString();
+		
+		string reversedstring = stringreverse.stringReverse(yourstring);
+		
+		Console.WriteLine("The string \"{0}\" reversed is: {1}", yourstring, reversedstring);
+		
+	}
+	
+}
