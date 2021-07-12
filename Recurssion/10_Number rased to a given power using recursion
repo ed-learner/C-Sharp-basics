@@ -1,0 +1,42 @@
+using System;
+
+class numberraisedtopower{
+	
+	public long calculatenumberraisedto(long basenumber, long power) {
+	    
+	    if( power == 0){
+		
+			return 1;
+		}
+		
+		else {
+		
+		 return basenumber * calculatenumberraisedto( basenumber, power - 1);
+		
+		}
+	
+	}
+	
+}
+
+public class displaynumberraisedtopower{
+
+	public static void Main(){
+	
+	   Console.WriteLine("Calculating number raised to a given power");
+		Console.WriteLine("Enter your base number: ");
+		
+		long basenumber = Convert.ToInt64(Console.ReadLine());
+		
+		Console.WriteLine("Enter your power: ");
+		long power = Convert.ToInt64(Console.ReadLine());
+	    
+		numberraisedtopower numberaisedtoexponent = new numberraisedtopower();
+		
+		long powerofanumber = numberaisedtoexponent.calculatenumberraisedto(basenumber, power);
+		
+		Console.WriteLine("The number {0} raised to {1} is {2}", basenumber, power, powerofanumber);
+	
+	}
+
+}
